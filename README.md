@@ -634,18 +634,6 @@ export class ProductComponent {
 export const ProductsStore = signalStore({ providedIn: 'root' }, withState<ProductsState>({ products: [] }));
 ```
 
-## 🎯 Próximos Passos
-
-Para expandir este projeto:
-
-1. **Adicionar Features**: Carrinho, Checkout, Usuários
-2. **Implementar SSR**: Angular Universal para SEO
-3. **PWA**: Service Workers e offline support
-4. **Micro-frontends**: Dividir por domínios
-5. **Storybook**: Documentação visual do Design System
-
----
-
 ## 📖 Documentação Adicional
 
 - 📚 [**Shared Library (Design System)**](./projects/shared/README.md)
