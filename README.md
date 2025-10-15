@@ -18,41 +18,6 @@
 
 > Configurei um pipeline CI/CD que faz deploy automático no GitHub Pages a cada push na `master`.
 
-### 🔄 Pipeline CI/CD
-
-```mermaid
-graph TB
-    A[📝 Push ou Pull Request] --> B{🔍 CI Workflow<br/>Validação}
-
-    B --> B1[📦 Setup<br/>Node 20 + PNPM 9]
-    B1 --> B2[🔒 Security Audit<br/>Dependências]
-    B2 --> B3[🧹 Linting<br/>ESLint + Prettier]
-    B3 --> B4[🧪 Tests<br/>Jest + Coverage]
-    B4 --> B5[🏗️ Build<br/>Shared + App]
-
-    B5 --> C{✅ Todos<br/>Passaram?}
-
-    C -->|❌ Falha| D[🚫 Deploy Bloqueado<br/>Notificação de Erro]
-    C -->|✅ Sucesso + master| E[🚀 CD Workflow<br/>Deploy]
-
-    E --> E1[🏗️ Build Produção<br/>Otimização AOT]
-    E1 --> E2[Config SPA<br/>.nojekyll + 404.html]
-    E2 --> E3[📦 GitHub Pages<br/>Deploy Automático]
-    E3 --> F[🌐 Live em Produção<br/>~2 minutos]
-```
-
-**📋 Resumo do Fluxo**:
-
-| Etapa       | Arquivo                    | Ação                             | Tempo       |
-| ----------- | -------------------------- | -------------------------------- | ----------- |
-| **🔍 CI**   | `.github/workflows/ci.yml` | Validação completa de qualidade  | ~3-4 min    |
-| **🚀 CD**   | `.github/workflows/cd.yml` | Build otimizado + Deploy         | ~1-2 min    |
-| **🌐 Live** | GitHub Pages               | Aplicação disponível em produção | Instantâneo |
-
-**🎯 Resultado**: Da aprovação do PR até produção em **menos de 5 minutos**!
-
----
-
 ## 🎯 Visão Geral
 
 Este projeto demonstra uma arquitetura Angular moderna utilizando **NgRx Signals** para gerenciamento de estado reativo, organizando uma aplicação de e-commerce em um **monorepo** com separação clara entre Design System e lógica de negócio.
@@ -522,6 +487,40 @@ steps:
   - 📄 SPA: Cria .nojekyll + 404.html para roteamento
   - 🌐 Deploy: GitHub Pages automático
 ```
+### 🔄 Pipeline CI/CD
+
+```mermaid
+graph TB
+    A[📝 Push ou Pull Request] --> B{🔍 CI Workflow<br/>Validação}
+
+    B --> B1[📦 Setup<br/>Node 20 + PNPM 9]
+    B1 --> B2[🔒 Security Audit<br/>Dependências]
+    B2 --> B3[🧹 Linting<br/>ESLint + Prettier]
+    B3 --> B4[🧪 Tests<br/>Jest + Coverage]
+    B4 --> B5[🏗️ Build<br/>Shared + App]
+
+    B5 --> C{✅ Todos<br/>Passaram?}
+
+    C -->|❌ Falha| D[🚫 Deploy Bloqueado<br/>Notificação de Erro]
+    C -->|✅ Sucesso + master| E[🚀 CD Workflow<br/>Deploy]
+
+    E --> E1[🏗️ Build Produção<br/>Otimização AOT]
+    E1 --> E2[Config SPA<br/>.nojekyll + 404.html]
+    E2 --> E3[📦 GitHub Pages<br/>Deploy Automático]
+    E3 --> F[🌐 Live em Produção<br/>~2 minutos]
+```
+
+**📋 Resumo do Fluxo**:
+
+| Etapa       | Arquivo                    | Ação                             | Tempo       |
+| ----------- | -------------------------- | -------------------------------- | ----------- |
+| **🔍 CI**   | `.github/workflows/ci.yml` | Validação completa de qualidade  | ~3-4 min    |
+| **🚀 CD**   | `.github/workflows/cd.yml` | Build otimizado + Deploy         | ~1-2 min    |
+| **🌐 Live** | GitHub Pages               | Aplicação disponível em produção | Instantâneo |
+
+**🎯 Resultado**: Da aprovação do PR até produção em **menos de 5 minutos**!
+
+---
 
 ### Pre-commit Hooks Automatizados
 
