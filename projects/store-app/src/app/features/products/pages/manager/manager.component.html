@@ -1,0 +1,32 @@
+<header class="manager-header">
+  <h2>Gerenciar Produtos</h2>
+  <div class="manager-header-actions">
+    <app-input-search [formControl]="searchControl" [placeholder]="'Digite o nome do produto...'" />
+    <app-button
+      [autoFocus]="true"
+      [text]="'Produto'"
+      [icon]="'add-circle-line'"
+      [color]="'secondary'"
+      [size]="'default'"
+      (clickEvent)="handleNewProduct()" />
+  </div>
+</header>
+<section class="list-product-manager">
+  <app-product-list
+    [loading]="loading()"
+    [products]="products()"
+    (editEvent)="handleEditProductById($event)"
+    (deleteEvent)="handleDeleteProductById($event)"
+    (clearSearchEvent)="clearSearchProducts()"
+    (retryEvent)="onRetryLoadProducts()" />
+</section>
+
+@defer (when modalRightStore.isOpen()) {
+  <app-modal-right>
+    <app-form-manager
+      [data]="productToEdit()"
+      [categories]="categories()"
+      (save)="onSaveProduct($event)"
+      (cancelForm)="onCancelActionProduct()" />
+  </app-modal-right>
+}

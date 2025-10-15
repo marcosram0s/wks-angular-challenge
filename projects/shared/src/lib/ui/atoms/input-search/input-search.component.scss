@@ -1,0 +1,89 @@
+@use '../../styles' as *;
+
+.input-search-container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  border: none;
+}
+
+.input-search-label {
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  color: $color-neutral-700;
+}
+
+.input-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-search-icon {
+  position: absolute;
+  left: $spacing-sm;
+  z-index: 1;
+  color: $color-neutral-600;
+  pointer-events: none;
+  font-size: 18px;
+}
+
+.input-search {
+  width: 100%;
+  border: 1px solid $color-neutral-500;
+  transition: border-color 0.2s ease-in-out;
+  border-radius: $spacing-xs;
+  padding: $spacing-xs $spacing-xxl;
+  font-size: $font-size-base;
+
+  &:focus {
+    outline: 1px solid $color-secondary-light;
+    outline-offset: 1px;
+  }
+
+  &.invalid {
+    border-color: $color-error;
+  }
+
+  &:disabled {
+    background-color: $color-neutral-300;
+    cursor: not-allowed;
+    color: $color-neutral-600;
+  }
+
+  &::placeholder {
+    color: $color-neutral-600;
+  }
+}
+
+.input-search-clear {
+  position: absolute;
+  right: $spacing-sm;
+  background: none;
+  border: none;
+  padding: $spacing-xxs;
+  cursor: pointer;
+  color: $color-neutral-600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  font-size: 16px;
+
+  &:hover {
+    background-color: $color-neutral-200;
+    color: $color-neutral-800;
+  }
+
+  &:focus {
+    outline: 1px solid $color-secondary-light;
+    outline-offset: 1px;
+  }
+}
+
+.input-search-error {
+  color: $color-error;
+  padding: 0 $spacing-sm;
+  font-size: $font-size-xs;
+}

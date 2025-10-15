@@ -1,0 +1,52 @@
+@use 'index' as *;
+@import 'remixicon/fonts/remixicon.css';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body,
+textarea,
+input,
+button,
+select {
+  font-family: 'Nunito', sans-serif !important;
+  line-height: 1.25;
+}
+
+::-webkit-scrollbar {
+  width: $spacing-sm;
+  height: $spacing-sm;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $color-neutral-200;
+  border-radius: $spacing-xs;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-primary;
+  border-radius: $spacing-xs;
+  border: $spacing-xxs solid $color-neutral-200;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $color-primary-dark;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $color-secondary-light $color-neutral-100;
+}

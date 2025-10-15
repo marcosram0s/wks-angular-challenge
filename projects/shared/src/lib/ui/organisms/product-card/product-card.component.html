@@ -1,0 +1,31 @@
+<div class="product-card">
+  <section class="product-image">
+    <app-image
+      [src]="product().image"
+      [alt]="constants.IMAGE_ALT_PREFIX + product().title"
+      [fill]="true"
+      [priority]="product().id <= constants.PRIORITY_THRESHOLD ? true : false" />
+  </section>
+  <app-card>
+    <section class="product-details">
+      <span class="product-category">{{ product().category | uppercase }}</span>
+      <h2 class="product-title" [id]="'product-title-' + product().id">
+        {{ product().title | truncate: constants.TITLE_TRUNCATE_LIMIT }}
+      </h2>
+      <p class="product-price">{{ product().price | currency: constants.CURRENCY }}</p>
+    </section>
+
+    <section class="product-actions">
+      <app-button
+        [color]="constants.COLORS.PRIMARY"
+        [icon]="constants.ICONS.EDIT"
+        (clickEvent)="onEdit()"
+        [ariaLabel]="constants.EDIT_ARIA_PREFIX + product().title" />
+      <app-button
+        [icon]="constants.ICONS.DELETE"
+        [color]="constants.COLORS.ERROR"
+        (clickEvent)="onDelete()"
+        [ariaLabel]="constants.DELETE_ARIA_PREFIX + product().title" />
+    </section>
+  </app-card>
+</div>

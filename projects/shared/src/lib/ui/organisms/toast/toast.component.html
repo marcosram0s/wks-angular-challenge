@@ -1,0 +1,23 @@
+<div class="toast-container">
+  @for (toast of toastStore.toasts(); track toast.id) {
+    <div
+      class="toast toast-{{ toast.type }}"
+      role="alert"
+      aria-live="polite"
+      aria-atomic="true"
+      (click)="removeToast(toast.id)"
+      (keydown.enter)="removeToast(toast.id)"
+      (keydown.space)="removeToast(toast.id)"
+      tabindex="0">
+      <div class="toast-icon">
+        <i [class]="'ri-' + toast.icon + '-line'"></i>
+      </div>
+      <div class="toast-message">
+        {{ toast.message }}
+      </div>
+      <button type="button" class="toast-close-button" (click)="removeToast(toast.id)" aria-label="Fechar notificação">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+  }
+</div>

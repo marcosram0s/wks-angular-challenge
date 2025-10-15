@@ -1,0 +1,107 @@
+@use '../../styles' as *;
+
+.button {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: $spacing-xs;
+  font-weight: $font-weight-medium;
+  gap: $spacing-xs;
+
+  &:focus {
+    outline: 1px solid $color-secondary-light;
+    outline-offset: 1px;
+  }
+
+  &:disabled {
+    background-color: $color-neutral-200;
+    color: $color-neutral-500;
+    cursor: not-allowed;
+  }
+}
+
+.button-default,
+.button-full {
+  font-size: $font-size-base;
+}
+
+.button-default {
+  padding: $spacing-xs $spacing-md;
+  width: auto;
+}
+
+.button-full {
+  width: 100%;
+  height: $font-size-2xxl;
+  padding: $spacing-xxs $spacing-md;
+}
+
+.button-primary {
+  background-color: $color-primary-light;
+  color: $color-primary-dark;
+
+  &:hover {
+    background-color: rgba($color-primary-dark, 0.2);
+  }
+
+  i {
+    color: $color-primary-dark;
+  }
+}
+
+.button-secondary {
+  background-color: $color-secondary-light;
+  color: $color-secondary-dark;
+
+  &:hover {
+    background-color: rgba($color-secondary-dark, 0.2);
+  }
+
+  i {
+    color: $color-secondary-dark;
+  }
+}
+
+.button-error {
+  background-color: $color-error-light;
+  color: $color-error-dark;
+
+  &:hover {
+    background-color: rgba($color-error-dark, 0.2);
+  }
+
+  i {
+    color: $color-error;
+  }
+}
+
+.button-success {
+  background-color: $color-success-light;
+  color: $color-success-dark;
+
+  &:hover {
+    background-color: rgba($color-success-dark, 0.2);
+  }
+
+  i {
+    color: $color-success;
+  }
+}
+
+.button-neutral {
+  background-color: $color-neutral-100;
+  border: 1px solid $color-neutral-400;
+  color: $color-black;
+
+  &:hover {
+    background-color: $color-neutral-300;
+  }
+
+  i {
+    color: $color-black;
+  }
+}

@@ -1,0 +1,24 @@
+@if (modalStore.isOpen()) {
+  <div class="modal-right-overlay" [class.closing]="modalStore.isClosing()">
+    <article
+      #modal
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-labelledby]="'modal-title'"
+      class="modal-right-card"
+      tabindex="0"
+      [class.closing]="modalStore.isClosing()">
+      <header class="modal-right-header">
+        <h3 id="modal-title" class="modal-right-title">
+          {{ modalStore.data().title }}
+        </h3>
+        <button type="button" class="modal-right-close" (click)="close()" aria-label="Fechar modal" appFocus>
+          <i class="ri-close-line"></i>
+        </button>
+      </header>
+      <section class="modal-right-body">
+        <ng-content></ng-content>
+      </section>
+    </article>
+  </div>
+}

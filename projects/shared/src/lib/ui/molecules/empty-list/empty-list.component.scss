@@ -1,0 +1,31 @@
+@use '../../styles' as *;
+
+.empty-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-lg;
+  text-align: center;
+  color: $color-neutral-600;
+  margin-top: $spacing-xxl;
+}
+
+.empty-list-icon {
+  font-size: $font-size-xxl;
+  margin-bottom: $spacing-md;
+  opacity: 0.7;
+}
+
+.empty-list-message {
+  font-size: $font-size-xl;
+  font-weight: 500;
+  margin-bottom: $spacing-md;
+}
+.empty-list-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+}

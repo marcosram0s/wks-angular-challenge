@@ -1,0 +1,23 @@
+@use 'index' as *;
+
+.product-list-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 314px));
+  justify-content: center;
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+
+  .product-list-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-xxs;
+  }
+}
+
+.product-list-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xxs;
+}

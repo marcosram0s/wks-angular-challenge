@@ -1,0 +1,109 @@
+@use '../../styles' as *;
+
+.select-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.select-label {
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  color: $color-neutral-700;
+}
+
+.select-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-md;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: 1px solid $color-neutral-500;
+  transition: border-color 0.2s ease-in-out;
+  border-radius: $spacing-xs;
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-base;
+  background-color: $color-neutral-50;
+  color: $color-neutral-900;
+
+  .placeholder {
+    color: $color-neutral-600;
+  }
+
+  .arrow {
+    border: solid $color-neutral-800;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &.open .arrow {
+    transform: rotate(-135deg);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-secondary-light;
+  }
+
+  &.invalid {
+    border-color: $color-error;
+  }
+
+  &:disabled {
+    background-color: $color-neutral-300;
+    cursor: not-allowed;
+    color: $color-neutral-600;
+  }
+}
+
+.select-list {
+  list-style: none;
+  position: absolute;
+  overflow-y: auto;
+  margin: 0;
+  left: 0;
+  width: 100%;
+  top: calc(100% + $spacing-xxs);
+  padding: 0;
+  background-color: $color-neutral-50;
+  border: 1px solid $color-neutral-300;
+  border-radius: $spacing-xs;
+  box-shadow: 0 4px 8px rgba($color-black, 0.1);
+  z-index: 10;
+
+  .select-item {
+    cursor: pointer;
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-base;
+    transition: background-color 0.2s ease-in-out;
+    color: $color-neutral-900;
+
+    &:hover,
+    &.active,
+    &:focus {
+      background-color: rgba($color-secondary-light, 0.2);
+      outline: none;
+    }
+
+    &.selected {
+      font-weight: $font-weight-bold;
+      color: $color-primary;
+      background-color: rgba($color-primary, 0.1);
+    }
+  }
+}
+
+.select-error {
+  color: $color-error;
+  padding: 0 $spacing-sm;
+  font-size: $font-size-xs;
+}

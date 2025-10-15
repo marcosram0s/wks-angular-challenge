@@ -1,0 +1,32 @@
+@use 'index' as *;
+
+.manager-header {
+  display: flex;
+  gap: $spacing-md;
+  align-items: center;
+  padding: $spacing-lg;
+  justify-content: space-between;
+
+  h2 {
+    font-size: $font-size-xxl;
+    color: $color-secondary-dark;
+    margin: 0;
+  }
+}
+
+.manager-header-actions {
+  display: flex;
+  gap: $spacing-md;
+}
+
+@media (max-width: 600px) {
+  .manager-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .manager-header-actions {
+    width: 100%;
+    gap: $spacing-xs;
+  }
+}

@@ -1,0 +1,33 @@
+<fieldset class="input-container">
+  <label class="input-label" [for]="idInput()">{{ label() }}</label>
+  @if (type() !== 'currency') {
+    <input
+      class="input"
+      [id]="idInput()"
+      [type]="type()"
+      [placeholder]="placeholder()"
+      [value]="value()"
+      [disabled]="disabled()"
+      [attr.aria-describedby]="error() ? errorId : null"
+      [attr.aria-invalid]="!!error()"
+      (input)="onInputValueChange($event)"
+      (blur)="onBlur()"
+      [class.invalid]="!!error()" />
+  } @else {
+    <input
+      class="input"
+      [id]="idInput()"
+      [type]="'text'"
+      [placeholder]="placeholder()"
+      [value]="value()"
+      [disabled]="disabled()"
+      [attr.aria-describedby]="error() ? errorId : null"
+      [attr.aria-invalid]="!!error()"
+      (input)="onInputValueChange($event)"
+      (blur)="onBlur()"
+      [class.invalid]="!!error()" />
+  }
+  @if (error()) {
+    <span [id]="errorId" class="input-error" role="alert">{{ error() }}</span>
+  }
+</fieldset>

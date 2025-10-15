@@ -1,0 +1,55 @@
+@use '../../styles' as *;
+
+.toast-container {
+  position: fixed;
+  top: $spacing-lg;
+  right: $spacing-lg;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  padding: $spacing-md;
+  border-radius: $spacing-sm;
+  color: $color-white;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+  min-width: 300px;
+
+  &.toast-success {
+    background-color: $color-success;
+  }
+
+  &.toast-error {
+    background-color: $color-error;
+  }
+
+  &.toast-warning {
+    background-color: $color-warning;
+    color: $color-white;
+    font-weight: $font-weight-medium;
+  }
+
+  .toast-icon {
+    margin-right: $spacing-md;
+    font-size: $font-size-xl;
+  }
+
+  .toast-message {
+    flex-grow: 1;
+  }
+
+  .toast-close-button {
+    margin-left: $spacing-md;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    cursor: pointer;
+  }
+}

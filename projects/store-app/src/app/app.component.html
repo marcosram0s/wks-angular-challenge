@@ -1,0 +1,13 @@
+<a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+<main>
+  <app-navbar [logoPath]="'assets/icons/logo.svg'" [links]="[{ path: '/products', label: 'Produtos' }]" />
+  <div id="main-content" class="main-container">
+    <router-outlet />
+  </div>
+</main>
+
+@defer (on idle) {
+  <app-modal></app-modal>
+  <app-toast></app-toast>
+}

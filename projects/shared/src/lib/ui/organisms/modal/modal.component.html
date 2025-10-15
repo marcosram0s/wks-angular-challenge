@@ -1,0 +1,24 @@
+@if (modalStore.isOpen()) {
+  <dialog class="modal-overlay" aria-modal="true" [attr.aria-labelledby]="'modal-dialog-title'" appFocusTrap>
+    <article class="modal-card" role="alertdialog">
+      <header class="modal-header">
+        <h3 id="modal-dialog-title">
+          {{ modalStore.data()?.title }}
+        </h3>
+      </header>
+      <section class="modal-body">
+        <p>{{ modalStore.data()?.content }}</p>
+      </section>
+      <footer class="modal-footer">
+        @for (button of modalStore.data()?.buttons; track button.action) {
+          <app-button
+            [autoFocus]="button.action === 'cancel'"
+            [text]="button.label"
+            [color]="button.action === 'confirm' ? 'error' : 'neutral'"
+            [ariaLabel]="button.label"
+            (click)="onButtonClick(button.action)" />
+        }
+      </footer>
+    </article>
+  </dialog>
+}

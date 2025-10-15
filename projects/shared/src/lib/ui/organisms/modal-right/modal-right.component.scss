@@ -1,0 +1,99 @@
+@use '../../styles' as *;
+
+.modal-right-overlay {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  inset: 0;
+  background-color: rgba($color-black, 0.2);
+  z-index: 2000;
+  transition: background-color 0.6s ease;
+
+  &.closing {
+    background-color: rgba($color-black, 0);
+  }
+}
+
+.modal-right-card {
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-lg;
+  width: 100%;
+  max-width: 28rem;
+  height: 100vh;
+  background-color: $color-neutral-50;
+  box-shadow: 0 $spacing-sm $spacing-md rgba($color-black, 0.3);
+  animation: slideInFromRight 0.6s ease-in-out;
+
+  &:focus {
+    outline: 1px solid $color-secondary-light;
+    outline-offset: 1px;
+  }
+
+  &.closing {
+    animation: slideOutToRight 0.6s ease-in-out;
+  }
+}
+
+.modal-right-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid $color-neutral-200;
+
+  .modal-right-title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    color: $color-neutral-900;
+  }
+
+  i {
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+}
+
+.modal-right-close {
+  border: none;
+  border-radius: $spacing-sm;
+  padding: $spacing-xxs;
+
+  &:focus {
+    outline: 2px solid $color-secondary-light;
+    outline-offset: 2px;
+  }
+}
+
+.modal-right-body {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}

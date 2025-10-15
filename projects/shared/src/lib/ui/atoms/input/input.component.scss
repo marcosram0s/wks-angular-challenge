@@ -1,0 +1,43 @@
+@use '../../styles' as *;
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  border: none;
+}
+
+.input-label {
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  color: $color-neutral-700;
+}
+
+.input {
+  border: 1px solid $color-neutral-500;
+  transition: border-color 0.2s ease-in-out;
+  border-radius: $spacing-xs;
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-base;
+
+  &:focus {
+    outline: 1px solid $color-secondary-light;
+    outline-offset: 1px;
+  }
+
+  &.invalid {
+    border-color: $color-error;
+  }
+
+  &:disabled {
+    background-color: $color-neutral-300;
+    cursor: not-allowed;
+    color: $color-neutral-600;
+  }
+}
+
+.input-error {
+  color: $color-error;
+  padding: 0 $spacing-sm;
+  font-size: $font-size-xs;
+}

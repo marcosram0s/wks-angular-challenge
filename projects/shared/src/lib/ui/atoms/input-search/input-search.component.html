@@ -1,0 +1,32 @@
+<fieldset class="input-search-container">
+  @if (label()) {
+    <label class="input-search-label" [for]="idInput()">{{ label() }}</label>
+  }
+
+  <div class="input-search-wrapper">
+    <i class="input-search-icon ri-search-line"></i>
+
+    <input
+      class="input-search"
+      [id]="idInput()"
+      type="text"
+      [placeholder]="placeholder()"
+      [value]="value()"
+      [disabled]="disabled()"
+      (input)="onInputValueChange($event)"
+      (blur)="onBlur()"
+      [class.invalid]="!!error()" />
+
+    @if (value()) {
+      <button type="button" class="input-search-clear" (click)="clearSearch()" aria-label="Limpar pesquisa">
+        <i class="ri-close-line"></i>
+      </button>
+    }
+  </div>
+
+  @if (error()) {
+    <span [id]="errorId" class="input-search-error">
+      {{ error() }}
+    </span>
+  }
+</fieldset>

@@ -1,0 +1,15 @@
+<div class="empty-list-container">
+  @if (icon()) {
+    <i class="empty-list-icon" [class]="icon()"></i>
+  }
+
+  <p class="empty-list-message">{{ message() }}</p>
+
+  <div class="empty-list-actions">
+    <app-button
+      [text]="constants.CLEAR_BUTTON_TEXT"
+      [color]="constants.CLEAR_BUTTON_COLOR"
+      (clickEvent)="onButtonClick()" />
+    <app-button [text]="constants.BUTTON_TEXT" [color]="constants.BUTTON_COLOR" (clickEvent)="onRetryClick()" />
+  </div>
+</div>

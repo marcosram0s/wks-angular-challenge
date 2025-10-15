@@ -1,0 +1,20 @@
+<fieldset class="textarea-container">
+  <label class="textarea-label" [for]="idInput()">{{ label() }}</label>
+  <textarea
+    class="textarea"
+    [id]="idInput()"
+    [placeholder]="placeholder()"
+    [value]="value()"
+    [disabled]="isDisabled()"
+    [rows]="rows()"
+    [attr.aria-describedby]="error() ? errorId : null"
+    [attr.aria-invalid]="!!error()"
+    (input)="onTextAreaValueChange($event)"
+    (blur)="onBlur()"
+    [class.invalid]="!!error()"></textarea>
+  @if (error()) {
+    <span [id]="errorId" class="textarea-error" role="alert">
+      {{ error() }}
+    </span>
+  }
+</fieldset>

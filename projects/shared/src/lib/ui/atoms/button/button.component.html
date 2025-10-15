@@ -1,0 +1,32 @@
+@if (autoFocus()) {
+  <button
+    type="button"
+    [disabled]="disabled()"
+    (click)="onClick()"
+    class="button"
+    [class]="['button-' + color(), 'button-' + size()]"
+    [attr.aria-label]="ariaLabel() ? ariaLabel() : text()"
+    appFocus>
+    @if (icon()) {
+      <i class="button-icon ri-{{ icon() }}"></i>
+    }
+    @if (text()) {
+      <span class="button-text">{{ text() }}</span>
+    }
+  </button>
+} @else {
+  <button
+    type="button"
+    [disabled]="disabled()"
+    (click)="onClick()"
+    class="button"
+    [class]="['button-' + color(), 'button-' + size()]"
+    [attr.aria-label]="ariaLabel() ? ariaLabel() : text()">
+    @if (icon()) {
+      <i class="button-icon ri-{{ icon() }}"></i>
+    }
+    @if (text()) {
+      <span class="button-text">{{ text() }}</span>
+    }
+  </button>
+}

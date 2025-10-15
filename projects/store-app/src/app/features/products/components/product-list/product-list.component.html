@@ -1,0 +1,19 @@
+@if (loading()) {
+  <div class="product-list-wrapper" role="status" aria-live="polite" aria-label="Carregando produtos">
+    @for (item of skeletonItems; track $index) {
+      <app-product-card-skeleton />
+    }
+  </div>
+} @else {
+  <div class="product-list-wrapper" [class]="products().length === 0 ? 'product-list-empty' : ''">
+    @for (product of products(); track trackByProductId()($index, product); let i = $index) {
+      <app-product-card [product]="product" (editEvent)="onEdit($event)" (deleteEvent)="onDelete($event)" />
+    } @empty {
+      <app-empty-list
+        [message]="emptyListConfig.message"
+        [icon]="emptyListConfig.icon"
+        (buttonEvent)="onClearSearch()"
+        (retryEvent)="onRetry()" />
+    }
+  </div>
+}

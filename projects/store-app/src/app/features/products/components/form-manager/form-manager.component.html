@@ -1,0 +1,63 @@
+<div class="form-container">
+  <form class="form-manager" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <app-input
+      [id]="'title'"
+      [label]="'Título'"
+      [type]="'text'"
+      [placeholder]="'Digite o título do produto'"
+      formControlName="title"
+      [error]="getErrorMessage('title')" />
+
+    <app-input
+      [id]="'price'"
+      [label]="'Preço (R$)'"
+      [type]="'currency'"
+      [placeholder]="'Digite o preço do produto'"
+      formControlName="price"
+      [error]="getErrorMessage('price')" />
+
+    <app-select
+      [label]="'Categoria'"
+      [placeholder]="'Selecione uma categoria'"
+      [options]="categoryOptions()"
+      formControlName="category"
+      [error]="getErrorMessage('category')" />
+
+    <app-input
+      [id]="'image'"
+      [label]="'URL da Imagem'"
+      [type]="'text'"
+      [placeholder]="'Digite uma URL válida'"
+      formControlName="image"
+      [error]="getErrorMessage('image')" />
+    <div class="form-image-preview">
+      <app-image
+        [src]="productForm.get('image')?.value || constants.DEFAULT_IMAGE"
+        [alt]="productForm.get('title')?.value || 'Preview da imagem do produto'"
+        [width]="width"
+        [height]="height" />
+    </div>
+
+    <app-text-area
+      [label]="'Descrição'"
+      [placeholder]="'Digite a descrição do produto'"
+      formControlName="description"
+      [rows]="5"
+      [error]="getErrorMessage('description')" />
+  </form>
+  <div class="form-actions">
+    <app-button
+      [text]="'Salvar'"
+      [icon]="'check-double-fill'"
+      [color]="constants.BUTTON_COLOR"
+      [size]="'full'"
+      (click)="onSubmit()" />
+    <app-button
+      [autoFocus]="true"
+      [text]="'Cancelar'"
+      [icon]="'close-circle-line'"
+      [color]="'neutral'"
+      [size]="'full'"
+      (click)="onCancel()" />
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<fieldset class="select-container">
+  <label class="select-label" [for]="idInput()">{{ label() }}</label>
+  <button
+    class="select-button"
+    type="button"
+    [id]="idInput()"
+    [class.open]="isOpen()"
+    [class.invalid]="!!error()"
+    [attr.aria-expanded]="isOpen()"
+    [attr.aria-haspopup]="'listbox'"
+    [attr.aria-labelledby]="idInput() + '-label'"
+    (click)="toggleDropdown()">
+    <span [class.placeholder]="!selectedOption()">
+      {{ displayLabel() }}
+    </span>
+    <span class="arrow"></span>
+  </button>
+
+  @if (isOpen()) {
+    <ul class="select-list" role="listbox" (keydown)="onKeydown($event)" tabindex="0">
+      @for (option of options(); track option.value; let i = $index) {
+        <li
+          class="select-item"
+          role="option"
+          #optionItem
+          [class.selected]="option.value === selectedOption()?.value"
+          [class.active]="$index === activeIndex()"
+          [attr.aria-selected]="option.value === selectedOption()?.value"
+          (click)="selectOption(option)"
+          (keydown)="onKeydown($event)"
+          tabindex="-1">
+          {{ option.label }}
+        </li>
+      }
+    </ul>
+  }
+  @if (error()) {
+    <span [id]="errorId" class="select-error" role="alert">
+      {{ error() }}
+    </span>
+  }
+</fieldset>
