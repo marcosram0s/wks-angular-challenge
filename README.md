@@ -84,6 +84,91 @@ wks-angular-challenge/
 
 ---
 
+## 🛠️ Stack Tecnológica
+
+### Core Framework
+
+- **Angular 19.2** - Framework principal com Signals nativos
+- **TypeScript 5.7** - Tipagem forte e recursos modernos
+- **RxJS 7.8** - Programação reativa
+- **NgRx Signals 20.0** - Estado reativo e type-safe
+
+### Ferramentas de Desenvolvimento
+
+- **PNPM** - Gerenciador de pacotes otimizado para monorepos
+- **Jest 30.2** - Framework de testes rápido e moderno
+- **ESLint 9.37** - Linting com regras Angular + unused-imports
+- **Prettier 3.6** - Formatação automática
+- **Husky 9.1** - Git hooks para qualidade
+
+### Workflow & Automação
+
+- **GitHub Actions** - Pipeline CI/CD automático
+- **GitHub Pages** - Deploy automático em produção
+- **Lint-staged** - Validação incremental em pre-commit
+- **Conventional Commits** - Padrão de commits estruturados
+- **Mermaid** - Diagramas de fluxo em documentação
+
+### Características Modernas
+
+- ✅ **Standalone Components** - Sem NgModules
+- ✅ **Input/Output Signals** - `input()`, `output()` APIs
+- ✅ **Novo Control Flow** - `@if`, `@for` em templates
+- ✅ **Function-based DI** - `inject()` em vez de constructor
+- ✅ **Signal-based Change Detection** - Performance otimizada
+
+---
+
+## 🚀 Scripts e Comandos
+
+### Desenvolvimento
+
+```bash
+# Instalar dependências
+pnpm install
+
+# Iniciar aplicação (http://localhost:4200)
+pnpm start
+
+# Build de produção
+pnpm build
+
+# Build em modo watch
+pnpm watch
+```
+
+### Testes
+
+```bash
+# Executar todos os testes
+pnpm test
+
+# Testes em modo watch
+pnpm test:watch
+
+# Testar apenas a biblioteca shared
+pnpm test:shared
+
+# Testar apenas store-app
+pnpm test:store-app
+```
+
+### Qualidade de Código
+
+```bash
+# Linting com correção automática
+pnpm lint
+
+# Formatação com Prettier
+pnpm format
+
+# Verificar formatação
+pnpm format:check
+```
+
+---
+
+
 ## 🔄 Gerenciamento de Estado com NgRx Signals
 
 ### Arquitetura de Estado
@@ -375,91 +460,6 @@ export const ProductsStore = signalStore(
 ```
 
 ---
-
-## 🛠️ Stack Tecnológica
-
-### Core Framework
-
-- **Angular 19.2** - Framework principal com Signals nativos
-- **TypeScript 5.7** - Tipagem forte e recursos modernos
-- **RxJS 7.8** - Programação reativa
-- **NgRx Signals 20.0** - Estado reativo e type-safe
-
-### Ferramentas de Desenvolvimento
-
-- **PNPM** - Gerenciador de pacotes otimizado para monorepos
-- **Jest 30.2** - Framework de testes rápido e moderno
-- **ESLint 9.37** - Linting com regras Angular + unused-imports
-- **Prettier 3.6** - Formatação automática
-- **Husky 9.1** - Git hooks para qualidade
-
-### Workflow & Automação
-
-- **GitHub Actions** - Pipeline CI/CD automático
-- **GitHub Pages** - Deploy automático em produção
-- **Lint-staged** - Validação incremental em pre-commit
-- **Conventional Commits** - Padrão de commits estruturados
-- **Mermaid** - Diagramas de fluxo em documentação
-
-### Características Modernas
-
-- ✅ **Standalone Components** - Sem NgModules
-- ✅ **Input/Output Signals** - `input()`, `output()` APIs
-- ✅ **Novo Control Flow** - `@if`, `@for` em templates
-- ✅ **Function-based DI** - `inject()` em vez de constructor
-- ✅ **Signal-based Change Detection** - Performance otimizada
-
----
-
-## 🚀 Scripts e Comandos
-
-### Desenvolvimento
-
-```bash
-# Instalar dependências
-pnpm install
-
-# Iniciar aplicação (http://localhost:4200)
-pnpm start
-
-# Build de produção
-pnpm build
-
-# Build em modo watch
-pnpm watch
-```
-
-### Testes
-
-```bash
-# Executar todos os testes
-pnpm test
-
-# Testes em modo watch
-pnpm test:watch
-
-# Testar apenas a biblioteca shared
-pnpm test:shared
-
-# Testar apenas store-app
-pnpm test:store-app
-```
-
-### Qualidade de Código
-
-```bash
-# Linting com correção automática
-pnpm lint
-
-# Formatação com Prettier
-pnpm format
-
-# Verificar formatação
-pnpm format:check
-```
-
----
-
 ## 🛡️ Pipeline de Qualidade
 
 ### GitHub Actions CI/CD
